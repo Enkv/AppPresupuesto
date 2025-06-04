@@ -1,6 +1,9 @@
 
-let ingresosHTML;
+let ingresosHTML="";
 let totalIngresos=0;
+
+let EgresosHTML="";
+let totalEgresos=0;
 
 let agregarDato=(event)=>{
     event.preventDefault(); //evita que la pagina se recargue al hacer click
@@ -15,11 +18,11 @@ if(descripcion!="" && valor !== ""){
     console.log("valor: "+ valor);
     if(tipo==="ingreso"){
         //hace algo
-        cargarIngresos(descripcion, Number(valor))
+        cargarIngresos(descripcion, Number(valor));
 
     }else if(tipo==="egreso"){
         //hace otra cosa
-        cargarEgreso(descripcion, Number(valor))
+        cargarEgresos(descripcion, Number(valor));
     }
     document.getElementById("descripcion").value="";
     document.getElementById("valor").value="";
@@ -60,11 +63,11 @@ let crearIngresosHTML=(descripcion, valor)=>{
 
  let cargarEgresos = (descripcion, valor) =>{
     //ingresosHTML = ingresosHTML + crearIngresosHTML(descripcion, valor)  
-    ingresosHTML -= crearEgresosHTML(descripcion, valor)
-    totalIngresos-=valor;
-    document.getElementById("ingresoTotal").textContent = formatearCLP(totalIngresos);
-    document.getElementById("presupuesto").textContent = formatearCLP(totalIngresos);// modi
-    document.getElementById("lista-ingresos").innerHTML=ingresosHTML;
+    EgresosHTML += crearEgresosHTML(descripcion, valor)
+    totalEgresos-=valor;
+    document.getElementById("EgresoTotal").textContent = formatearCLP(totalEgresos);
+    document.getElementById("presupuesto").textContent = formatearCLP(totalEgresos);// modi
+    document.getElementById("lista-Egresos").innerHTML=EgresosHTML;
 
 }
 
