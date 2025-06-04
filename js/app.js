@@ -64,15 +64,16 @@ let crearIngresosHTML=(descripcion, valor)=>{
  let cargarEgresos = (descripcion, valor) =>{
     //ingresosHTML = ingresosHTML + crearIngresosHTML(descripcion, valor)  
     EgresosHTML += crearEgresosHTML(descripcion, valor)
-    totalEgresos-=valor;
+    totalEgresos+=valor;
     document.getElementById("EgresoTotal").textContent = formatearCLP(totalEgresos);
     document.getElementById("presupuesto").textContent = formatearCLP(totalEgresos);// modi
-    document.getElementById("lista-Egresos").innerHTML=EgresosHTML;
+    document.getElementById("lista-egresos").innerHTML=EgresosHTML;
+    document.getElementById("porcentaje").textContent= totalIngresos/totalEgresos;
 
 }
 
 
-let crearEgresosHTML=(descripcion, valor)=>{
+let crearEgresosHTML=(descripcion,valor)=>{
     return `<div class="elemento limpiarEstilos">
                 <div class="elemento_descripcion">${descripcion}</div>
                 <div class="derecha limpiarEstilos">
