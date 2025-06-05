@@ -41,8 +41,9 @@ let cargarIngresos = (descripcion, valor) =>{
     ingresosHTML += crearIngresosHTML(descripcion, valor)
     totalIngresos+=valor;
     let porcentaje = (totalEgresos/totalIngresos*100)
+    let presupuestoTotal= (totalIngresos-totalEgresos)
     document.getElementById("ingresoTotal").textContent = formatearCLP(totalIngresos);
-    document.getElementById("presupuesto").textContent = formatearCLP(totalIngresos);// modi
+    document.getElementById("presupuesto").textContent = formatearCLP(presupuestoTotal);// modi
     document.getElementById("lista-ingresos").innerHTML=ingresosHTML;
     document.getElementById("porcentaje").textContent= porcentaje + "%";
 
@@ -69,8 +70,9 @@ let crearIngresosHTML=(descripcion, valor)=>{
     EgresosHTML += crearEgresosHTML(descripcion, valor)
     totalEgresos+=valor;
     let porcentaje = (totalEgresos/totalIngresos*100)
+    let presupuestoTotal= (totalIngresos-totalEgresos)
     document.getElementById("EgresoTotal").textContent = formatearCLP(totalEgresos);
-    document.getElementById("presupuesto").textContent = formatearCLP(totalEgresos);// modi
+    document.getElementById("presupuesto").textContent = formatearCLP(presupuestoTotal);// modi
     document.getElementById("lista-egresos").innerHTML=EgresosHTML;
     document.getElementById("porcentaje").textContent= porcentaje + "%";
 
